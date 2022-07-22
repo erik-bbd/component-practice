@@ -3,14 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FoodsComponent } from './foods/foods.component';
+import { FoodDetailsComponent } from './food-details/food-details.component';
+import { FormsModule } from '@angular/forms';
+import { FoodServiceService } from './food-service.service';
+import { FoodDetailsEditorComponent } from './food-details-editor/food-details-editor.component';
+import { FoodAddComponent } from './food-add/food-add.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FoodsComponent,
+    FoodDetailsComponent,
+    FoodDetailsEditorComponent,
+    FoodAddComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

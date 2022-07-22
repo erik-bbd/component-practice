@@ -1,0 +1,17 @@
+<div *ngIf="food">
+    <div>
+        <span>{{food.name}}</span>
+    </div>
+    <div>
+        <span>{{food.price}}</span>
+    </div>
+    <ul>
+        <li *ngFor="let ingredient of food.ingredients">
+            <div>
+                <span>{{ingredient}}</span>
+            </div>
+        </li>
+    </ul>
+    <button (click)="removeFood()">Remove</button>
+</div>
+

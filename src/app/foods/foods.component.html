@@ -1,0 +1,19 @@
+<div>
+    <div *ngIf="foods">
+        <ul class="food">
+            <li *ngFor="let food of foods">
+                <button type="button"
+                (click)="onSelect(food)">
+                    <app-food-details [food]="food"></app-food-details>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="selectedFood">
+        <app-food-details-editor [food]="selectedFood"></app-food-details-editor>
+    </div>
+    <button (click)="onAdd()">Add Food</button>
+    <div *ngIf="addingFood">
+        <app-food-add></app-food-add>
+    </div>
+</div>
