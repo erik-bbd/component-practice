@@ -1,5 +1,6 @@
 <div *ngIf="food">
     <div>
+        <input type="text" id="name" name="name" (keyup.Enter)="onEnter()">
         <span>{{food.name}}</span>
     </div>
     <div>
@@ -12,6 +13,11 @@
             </div>
         </li>
     </ul>
-    <button (click)="removeFood()">Remove</button>
+    <div>
+        <button (click)="removeFood()">Remove</button>
+
+        <button (click)="close()">Close</button>
+    </div>
+
 </div>
 
