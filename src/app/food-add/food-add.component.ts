@@ -21,4 +21,10 @@ export class FoodAddComponent implements OnInit {
     console.log(this.food);
   }
 
+  onKey(event: Event): void {
+    this.food.ingredients.push((<HTMLInputElement>document.getElementById("ingredient")).value);
+    (<HTMLInputElement>document.getElementById("ingredient")).value = "";
+
+  }
+
 }

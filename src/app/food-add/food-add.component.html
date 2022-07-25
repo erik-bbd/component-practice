@@ -12,6 +12,11 @@
             <input type="number" id="price" name="price" #price>
         </span>
     </div>
+    <div>
+        <label>Ingredients: </label>
+        <span *ngFor="let ingredient of food.ingredients">{{ingredient}}, </span>
+        <div><input type="text" id = "ingredient" name="ingredient" #ingredient (keyup.Enter)="onKey($event)"></div>
+    </div>
     <span><button type="button" (click)="add()">Add</button></span>
     
 </div>
