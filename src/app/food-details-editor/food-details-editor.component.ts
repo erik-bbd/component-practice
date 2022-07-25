@@ -18,6 +18,7 @@ export class FoodDetailsEditorComponent implements OnInit {
 
   removeFood(): void {
     this.foodService.removeFood(this.food!);
+    
   }
 
 }

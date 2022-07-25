@@ -13,7 +13,7 @@
         <app-food-details-editor [food]="selectedFood"></app-food-details-editor>
     </div>
     <button (click)="onAdd()">Add Food</button>
-    <div *ngIf="addingFood">
-        <app-food-add></app-food-add>
+    <div>
+        <app-food-add *ngIf="addingFood" (onCLose)="addingFood=false"></app-food-add>
     </div>
 </div>
