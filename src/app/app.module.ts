@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { FoodServiceService } from './food-service.service';
 import { FoodDetailsEditorComponent } from './food-details-editor/food-details-editor.component';
 import { FoodAddComponent } from './food-add/food-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FoodAddComponent } from './food-add/food-add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

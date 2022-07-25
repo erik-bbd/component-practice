@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Food } from '../food';
-import { FoodServiceService } from '../food-service.service';
+import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-food-add',
@@ -9,30 +8,26 @@ import { FoodServiceService } from '../food-service.service';
 })
 export class FoodAddComponent implements OnInit {
 
-  @Output() onCLose: EventEmitter<boolean> = new EventEmitter();
+  @Output() onSave: EventEmitter<any> = new EventEmitter();
+  @Input() food: any;
+  public foodForm: FormGroup;
 
-  food: Food = {name:"name", price:0, ingredients:[]};
-
-  constructor(private foodService: FoodServiceService) { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.foodForm = new FormGroup({
+      name: new FormControl(''),
+      price: new FormControl(''),
+      ingredients: new FormControl('')
+    });
   }
 
-  add(): void {
-    this.food.name = (<HTMLInputElement>document.getElementById("name")).value;
-    this.food.price = +(<HTMLInputElement>document.getElementById("price")).value;
-    console.log(this.food);
-    this.foodService.addFood(this.food);
-    this.onCLose.emit(true);
+  ngOnInit() {
+    if (this.food) {
+      this.foodForm.setValue(this.food);
+    }
   }
 
-  onKey(): void {
-    this.food.ingredients.push((<HTMLInputElement>document.getElementById("ingredient")).value);
-    (<HTMLInputElement>document.getElementById("ingredient")).value = "";
+  onSubmit() {
+    this.onSave.emit(this.foodForm.value);
+    this.foodForm.reset();
   }
-
-  // onClose(): boolean {
-  //   this.onClose.emit(true);
-  // }
-
 }

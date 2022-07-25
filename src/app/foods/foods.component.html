@@ -9,11 +9,8 @@
             </li>
         </ul>
     </div>
-    <div *ngIf="selected">
-        <app-food-details-editor [food]="selectedFood" (onClose)="onClose()"></app-food-details-editor>
-    </div>
-    <button (click)="onAdd()">Add Food</button>
+    <button (click)="addFood()">Add Food</button>
     <div>
-        <app-food-add *ngIf="addingFood" (onCLose)="addingFood=false"></app-food-add>
+        <app-food-add *ngIf="editingFood" [food]="selectedFood" (onSave)="handleOnSave($event)"></app-food-add>
     </div>
 </div>

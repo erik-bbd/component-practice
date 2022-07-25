@@ -1,23 +1,27 @@
-<div>
-    <h2>Add Food Item</h2>
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit()">
     <div>
+        <h2>Add Food Item</h2>
+        <div>
+            <span>
+                <label>Name</label>
+                <input type="text" id="name" name="name" formControlName="name">
+            </span>
+        </div>
+        <div>
+            <span>
+                <label>Price</label>
+                <input type="number" id="price" name="price" formControlName="price">
+            </span>
+        </div>
+        <!-- <div>
+            <label>Ingredients: </label>
+            <span *ngFor="let ingredient of food.ingredients">{{ingredient}}, </span>
+            <div><input type="text" id="ingredient" name="ingredient" formControlName="ingredients"
+                    (keyup.Enter)="onKey()"></div>
+        </div> -->
         <span>
-            <label>Name</label>
-            <input type="text" id="name" name="name" #name>
-        </span>
-    </div>
-    <div>
-        <span>
-            <label>Price</label>
-            <input type="number" id="price" name="price" #price>
-        </span>
-    </div>
-    <div>
-        <label>Ingredients: </label>
-        <span *ngFor="let ingredient of food.ingredients">{{ingredient}}, </span>
-        <div><input type="text" id = "ingredient" name="ingredient" #ingredient (keyup.Enter)="onKey()"></div>
-    </div>
-    <span><button type="button" (click)="add()">Add</button></span>
-    
-</div>
+            <button type="submit">Add</button></span>
 
+    </div>
+
+</form>

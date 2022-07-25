@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class FoodServiceService {
 
-  foods: Food[] = FOODS;
+  foods: Food[] = [];
 
   constructor() { }
 
@@ -22,8 +22,6 @@ export class FoodServiceService {
   }
 
   removeFood(food: Food): void {
-    console.log(food)
     this.foods.splice(this.foods.indexOf(food, 0), 1);
-    console.log(this.foods);
   }
 }
